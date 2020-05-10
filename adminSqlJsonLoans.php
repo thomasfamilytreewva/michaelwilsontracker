@@ -17,7 +17,8 @@ $conn = @mysqli_connect($servername, $username, $password, $dbname) or die("Coul
 //echo "Connected successfully";
 
  $NodeUID = "1";
- 	$sql = "SELECT * FROM users";
+ //$sql = "SELECT * FROM testtable WHERE NodeUID = '".$NodeUID."'";
+	$sql = "SELECT * FROM loans";
 	$result = mysqli_query($conn,$sql);
 	
 	$rowcount = mysqli_num_rows($result);
@@ -31,11 +32,11 @@ else{
 	  }
 }
 
-$myObjUsers = json_encode($data);
-echo $myObjUsers;
+$myObjLoans = json_encode($data);
+echo $myObjLoans;
 
-$myfile = fopen("jsonMyObjUsers.txt", "w") or die("Unable to open file!");
-$txt = $myObjUsers;
+$myfile = fopen("jsonMyObjLoans.txt", "w") or die("Unable to open file!");
+$txt = $myObjLoans;
 fwrite($myfile, $txt);
 fclose($myfile);
 ?>

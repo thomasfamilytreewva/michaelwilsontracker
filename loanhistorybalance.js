@@ -14,16 +14,27 @@ var $idPhp = "";
   var correctIncorrect = "";
   var photoname = "";
   var searchNameFoundYesNo="";
-var myObj = JSON.parse(localStorage["myObj"]);
-var myObjUsers = JSON.parse(localStorage["myObjUsers"]);
+  var username="";
+var userpassword="";
+var searchNameOri="";
+
+//var myObjUsers = JSON.parse(localStorage["myObjUsers"]);
+//var myObjLoans = JSON.parse(localStorage["myObjLoans"]);
 var usernamecheckokyesno = "";
+var passwordcheckokyesno = "";
+
 
 function checkusername(){
+	searchNameOri = document.getElementById("searchName").value
 	searchName = document.getElementById("searchName").value
 searchName = searchName.toUpperCase();
+
+	
+	var myObjUsers = JSON.parse(localStorage["myObjUsers"]);
 for (i in myObjUsers) {
+
 id=myObjUsers[i].id;
-    username=myObjUsers[i].username;
+username=myObjUsers[i].username;
 	username = username.toUpperCase();
 
 	if (username==searchName){
@@ -35,16 +46,53 @@ usernamecheckokyesno = "no";
 }
 
 
-function checkpassword(){
+function checkuserpassword(){
+	userpassword = document.getElementById("userpassword").value
+var myObjUsers = JSON.parse(localStorage["myObjUsers"]);
+//for (i in myObjUsers) {
+
+username=myObjUsers[i].username;
+passwordobj=myObjUsers[i].userpassword;
+	
+	if (userpassword==passwordobj){
+		passwordcheckokyesno = "yes";
+		return;
+	}
+//	}
+passwordcheckokyesno = "no";
 }
 
 
 function mySearch() {
+	searchName = document.getElementById("searchName").value
+	userpassword = document.getElementById("userpassword").value
+
+		
+if (searchName==""){
+alert("You must enter a User Name");
+return;
+}
+
+	
+if (userpassword==""){
+alert("You must enter a Password");
+return;
+}
+
+
+	
 	searchNameFoundYesNo="No";
 	checkusername();
+	checkuserpassword();
 	
 if (usernamecheckokyesno=="no"){
-alert(searchName + " is not a valid User Name");
+alert(searchNameOri + " is not a valid User Name");
+return;
+}
+
+	
+if (passwordcheckokyesno=="no"){
+alert("Password is not correct");
 return;
 }
 
@@ -59,25 +107,26 @@ while (i > 1) {
 searchName = document.getElementById("searchName").value
 searchName = searchName.toUpperCase();
   
-for (i in myObj) {
-id=myObj[i].id;
+  var myObjLoans = JSON.parse(localStorage["myObjLoans"]);
+for (i in myObjLoans) {
+id=myObjLoans[i].id;
 
-    date=myObj[i].date;
+    date=myObjLoans[i].date;
  
-  name = myObj[i].name;
+  name = myObjLoans[i].name;
   name = name.toUpperCase();
 
-  amountloan=myObj[i].amountloan;
+  amountloan=myObjLoans[i].amountloan;
  
- amountpaid=myObj[i].amountpaid;
+ amountpaid=myObjLoans[i].amountpaid;
  
-adjustments=myObj[i].adjustments;
+adjustments=myObjLoans[i].adjustments;
  
- balance=myObj[i].balance;
+ balance=myObjLoans[i].balance;
  
- comments=myObj[i].comments;
+ comments=myObjLoans[i].comments;
   
- if (name.includes(searchName)==true){
+ if (name==searchName){
 searchNameFoundYesNo="Yes";
   createTable();
   document.getElementById("myTable").style.visibility = "visible";
@@ -86,7 +135,7 @@ searchNameFoundYesNo="Yes";
   
   
   if (searchNameFoundYesNo=="No"){
-alert("No match was found for your search " + searchName);	 
+alert(searchNameOri + " is not a valid User Name");	 
 return;
  }
 

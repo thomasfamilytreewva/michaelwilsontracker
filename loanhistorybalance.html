@@ -16,11 +16,57 @@ table, th, td {
   border: 1px solid black;
 }
 </style>
+<!--
+
+<script>
+ var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    myObj = (this.responseText);
+	localStorage.removeItem("myObj");
+localStorage.setItem("myObj", (myObj));
+    }
+  };
+  xhttp.open("GET", "jsonMyObj.txt", true);
+  xhttp.send();
+</script>
+
+-->
+<script>
+ var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    myObjLoans = (this.responseText);
+	localStorage.removeItem("myObjLoans");
+localStorage.setItem("myObjLoans", (myObjLoans));
+    }
+  };
+  xhttp.open("GET", "jsonMyObjLoans.txt", true);
+  xhttp.send();
+</script>
+
+
+<script>
+ var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    myObjUsers = (this.responseText);
+	localStorage.removeItem("myObjUsers");
+localStorage.setItem("myObjUsers", (myObjUsers));
+    }
+  };
+  xhttp.open("GET", "jsonMyObjUsers.txt", true);
+  xhttp.send();
+</script>
+
+
 
 
 <script>
 var myTable = document.getElementById("myTable");
-var myObj = JSON.parse(localStorage["myObj"]);
+var myObjLoans = JSON.parse(localStorage["myObjLoans"]);
+var myObjUsers = JSON.parse(localStorage["myObjUsers"]);
+
 var rowIndex;
 </script>
   
@@ -48,7 +94,7 @@ var rowIndex;
  <label for="username">User Name:</label><br>
    <input id="searchName" type="text"><br><br>
      <label for="password">Password:</label><br>
-  <input id="searchName" type="text"><br><br>
+  <input id="userpassword" type="password"><br><br>
   
   <button id="SearchButton" onclick="mySearch()">Submit</button><br><br>
  
