@@ -36,12 +36,12 @@ localStorage.setItem("myObj", (myObj));
  var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-    myObjLoans = (this.responseText);
-	localStorage.removeItem("myObjLoans");
-localStorage.setItem("myObjLoans", (myObjLoans));
+    myObjUsers = (this.responseText);
+	localStorage.removeItem("myObjUsers");
+localStorage.setItem("myObjUsers", (myObjUsers));
     }
   };
-  xhttp.open("GET", "jsonMyObjLoans.txt", true);
+  xhttp.open("GET", "jsonMyObjUsers.txt", true);
   xhttp.send();
 </script>
 
@@ -50,12 +50,12 @@ localStorage.setItem("myObjLoans", (myObjLoans));
  var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-    myObjUsers = (this.responseText);
-	localStorage.removeItem("myObjUsers");
-localStorage.setItem("myObjUsers", (myObjUsers));
+    myObjLoans = (this.responseText);
+	localStorage.removeItem("myObjLoans");
+localStorage.setItem("myObjLoans", (myObjLoans));
     }
   };
-  xhttp.open("GET", "jsonMyObjUsers.txt", true);
+  xhttp.open("GET", "jsonMyObjLoans.txt", true);
   xhttp.send();
 </script>
 
