@@ -1,0 +1,69 @@
+<!--20 May 2020-->
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="jquery-3.3.1.js"></script>
+<script src="loanhistorybalance.js"></script>
+
+<style>
+</style>
+
+<script>
+function testvar(){
+username = document.getElementById("username").value
+username = username.toUpperCase();
+
+password = document.getElementById("password").value
+password = password.toUpperCase();
+
+searchName = document.getElementById("username").value
+searchName = searchName.toUpperCase();
+
+mySearch();
+}
+
+</script>
+
+
+
+<script>
+ var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    myObjUsers = (this.responseText);
+	localStorage.removeItem("myObjUsers");
+localStorage.setItem("myObjUsers", (myObjUsers));
+     }
+  };
+  xhttp.open("GET", "jsonmyObjUsers.txt", true);
+  xhttp.send();
+  
+ </script>
+
+   
+</head>
+<body>
+
+<!--Comment HTML-->
+<h1>Loan Login Page</h1>
+
+ <input id="demo" type="text"><br><br>
+ 
+
+<form action="loanhistorybalance.js">
+  <label for="username">User Name:</label><br>
+  <input type="text" id="username" name="username" value=""><br>
+  <label for="password">password:</label><br>
+  <input type="text" id="password" name="password" value=""><br><br>
+  <input type="submit" value="Submit" onclick="testvar()">
+</form>  
+
+
+<br>
+<br>
+
+
+
+</body>
+</html>

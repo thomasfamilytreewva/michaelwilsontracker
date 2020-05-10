@@ -1,0 +1,92 @@
+<!--20 Jan 2020-->
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="jquery-3.3.1.js"></script>
+<script src="loanhistorybalance.js"></script>
+<!--
+For consistency I am trying to run a js file with the same name as
+the html therefore I'm commenting out the myFunctions.js file
+<script src="myJsFunctions.js"></script>
+All javascript will be ran from the loanhistorybalance.js file
+-->
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+
+
+<script>
+var myTable = document.getElementById("myTable");
+var myObj = JSON.parse(localStorage["myObj"]);
+var rowIndex;
+</script>
+  
+ </head>
+<body>
+
+<!--Comment HTML-->
+
+<!--
+
+ <input id="demo" type="text"><br><br>
+ 
+
+<form action="loanhistorybalance.js">
+  <label for="username">User Name:</label><br>
+  <input type="text" id="searchName" ><br>
+  <label for="password">password:</label><br>
+  <input type="text" id="password" name="password" value=""><br><br>
+  <input type="submit" value="Submit" onclick="mySearch()">
+</form>  
+--> 
+
+<h1>Login Here</h1>
+
+ <label for="username">User Name:</label><br>
+   <input id="searchName" type="text"><br><br>
+     <label for="password">Password:</label><br>
+  <input id="searchName" type="text"><br><br>
+  
+  <button id="SearchButton" onclick="mySearch()">Submit</button><br><br>
+ 
+ <label for="balance">Balance:</label> <input id="balance" type="text"><br><br>
+    
+   <script>
+
+   
+</script>
+   <script>
+   //This makes button click with Enter Key
+var input = document.getElementById("searchName");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("SearchButton").click();
+  }
+});
+
+</script> 
+  
+ <table id="myTable">
+  <tr>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Name</th>
+	<th>Amount Loan</th>
+    <th>Amouny Paid</th>
+    <th>Adjustments</th>
+
+    <th>Comments</th>
+  </tr>
+  </table>
+  
+  <script>
+	//document.getElementById("myTable").style.visibility = "visible";
+ </script>  
+
+
+ </body>
+</html>
